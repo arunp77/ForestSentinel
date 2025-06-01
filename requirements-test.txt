@@ -1,5 +1,0 @@
-# requirements-test.txt
--r requirements.txt
-pytest>=7.0.0
-rasterio>=1.2.0
-numpy>=1.20.0
