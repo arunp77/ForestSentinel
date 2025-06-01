@@ -17,6 +17,25 @@ data:
           description: "NIR"
       resolution: 30  # meters
 
+data_sources:
+  landsat:
+    collection: "LANDSAT/LC08/C02/T1_L2"
+    bands: ["SR_B2", "SR_B3", "SR_B4", "SR_B5"]  # Blue, Green, Red, NIR
+    
+processing:
+  cloud_mask: True
+  ndvi_threshold: 0.3
+  indices: ["NDVI", "EVI"]
+  change_detection:
+    method: "zscore"
+    threshold: -2.0
+    window_size: 4  # months
+
+alerting:
+  thresholds:
+    ndvi_drop: 0.15  # 15% decrease triggers alert
+
+
 spark:
   master: "local[*]"
   app_name: "ForestSentinel"
@@ -26,12 +45,7 @@ spark:
     - key: "spark.driver.memory"
       value: "4g"
 
-processing:
-  ndvi_threshold: 0.3
-  change_detection:
-    method: "zscore"
-    threshold: -2.0
-    window_size: 4  # months
+
 
 alerting:
   enabled: true
