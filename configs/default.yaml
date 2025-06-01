@@ -1,0 +1,42 @@
+# ForestSentinel Configuration
+
+data:
+  input_dir: "./data/raw"
+  processed_dir: "./data/processed"
+  output_dir: "./output"
+  sources:
+    - name: "Landsat8"
+      bands:
+        - name: "B2"
+          description: "Blue"
+        - name: "B3"
+          description: "Green"
+        - name: "B4"
+          description: "Red"
+        - name: "B5"
+          description: "NIR"
+      resolution: 30  # meters
+
+spark:
+  master: "local[*]"
+  app_name: "ForestSentinel"
+  config:
+    - key: "spark.executor.memory"
+      value: "4g"
+    - key: "spark.driver.memory"
+      value: "4g"
+
+processing:
+  ndvi_threshold: 0.3
+  change_detection:
+    method: "zscore"
+    threshold: -2.0
+    window_size: 4  # months
+
+alerting:
+  enabled: true
+  email:
+    smtp_server: "smtp.example.com"
+    sender: "alerts@forestsentinel.com"
+    recipients:
+      - "admin@example.com"
