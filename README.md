@@ -12,6 +12,28 @@ This project will create an end-to-end deforestation monitoring system using sat
 ## 🎯 Objective:
 To build a scalable pipeline that ingests, processes, and analyzes satellite observation data (e.g., from EPS-SG or Sentinel), and computes statistics like daily average radiance, cloud cover, and data quality flags.
 
+##  Data Flow
+
+```sh
+[Satellite Data Sources] → [Data Ingestion] → [Preprocessing] → [Analysis] → [Alert Generation] → [Visualization]
+                                 ↓                  ↓                ↓
+                         [Cloud Storage]   [Distributed Cache]  [Results DB]
+```
+
+For data flow, use following command: 
+```sh
+forestsentinel ingest --config configs/amazon.yaml
+```
+
+What happens:
+
+- cli.py parses command
+- Creates DataIngestor instance
+- Downloads Landsat data to data/raw/
+- Preprocesses to data/processed/
+- Generates NDVI calculations
+- Outputs alerts to output/
+
 ## Directory structure 
 
 ```md
