@@ -12,6 +12,64 @@ This project will create an end-to-end deforestation monitoring system using sat
 ## 🎯 Objective:
 To build a scalable pipeline that ingests, processes, and analyzes satellite observation data (e.g., from EPS-SG or Sentinel), and computes statistics like daily average radiance, cloud cover, and data quality flags.
 
+## Directory structure 
+
+```md
+forestsentinel/
+├── README.md               # Project documentation
+├── setup.py                # Installation script
+├── requirements.txt        # Python dependencies
+├── LICENSE
+├── .gitignore
+├── docs/                   # Documentation files
+│   ├── user_guide.md
+│   ├── developer_guide.md
+│   └── api_reference.md
+├── configs/                # Configuration files
+│   ├── default.yaml
+│   ├── production.yaml
+│   └── local.yaml
+├── forestsentinel/         # Main package
+│   ├── __init__.py
+│   ├── cli.py              # Command line interface
+│   ├── core/               # Core processing modules
+│   │   ├── __init__.py
+│   │   ├── ingestion.py
+│   │   ├── preprocessing.py
+│   │   ├── analysis.py
+│   │   ├── change_detection.py
+│   │   └── alert_generation.py
+│   ├── utils/              # Utility functions
+│   │   ├── __init__.py
+│   │   ├── geospatial.py
+│   │   ├── spark_utils.py
+│   │   └── visualization.py
+│   ├── data/               # Sample data and schemas
+│   │   ├── sample_input/
+│   │   ├── schemas/
+│   │   └── test_aois/
+│   ├── tests/              # Unit tests
+│   │   ├── __init__.py
+│   │   ├── test_ingestion.py
+│   │   ├── test_processing.py
+│   │   └── test_analysis.py
+│   └── scripts/            # Maintenance and utility scripts
+│       ├── setup_spark.py
+│       └── db_migrations.py
+├── notebooks/              # Example Jupyter notebooks
+│   ├── quickstart.ipynb
+│   ├── advanced_analysis.ipynb
+│   └── visualization_demo.ipynb
+├── docker/                 # Dockerfiles for containerization
+│   ├── Dockerfile
+│   ├── Dockerfile.spark
+│   └── docker-compose.yml
+└── examples/               # Example configuration files
+    ├── deforestation_alert/
+    └── vegetation_monitoring/
+``` 
+
+## Project descriptions 
 ###  1. Environment Setup: Infrastructure Requirements
 - Apache Spark 3.x cluster (can be local for development)
 - Python 3.8+ with scientific stack
