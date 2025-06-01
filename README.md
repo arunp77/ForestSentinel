@@ -109,4 +109,19 @@ forestsentinel/
 - **Web Dashboard:** Build interactive visualization with Dash or Streamlit
 - **Advanced Change Detection:** Implement CCDC (Continuous Change Detection and Classification)
 
+
+## Installation and Usage
+### 1. Install the package:
+```sh
+pip install -e .
+```
+### 2. Run the tool:
+```sh
+forestsentinel --help
+forestsentinel ingest --config configs/local.yaml
+forestsentinel analyze --config configs/local.yaml --aoi data/test_aois/amazon.geojson
+```
+
+
+## Summary 
 This project provides a comprehensive framework for satellite data processing with Spark that you can adapt to your specific needs. The modular design allows for customization of each component while maintaining a scalable architecture.
