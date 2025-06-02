@@ -6,9 +6,9 @@ setup(
     description="Satellite-based deforestation monitoring tool",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="your.email@example.com",
-    url="https://github.com/yourusername/forestsentinel",
+    author="Arun Kumar Pandey",
+    author_email="arunp77@gmail.com",
+    url="https://github.com/arunp77/forestsentinel",
     packages=find_packages(),
     install_requires=[
         "pyspark>=3.0.0",
